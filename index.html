@@ -1,0 +1,18 @@
+html = """
+<html>
+<head><title>ML Predictions</title></head>
+<body>
+<h1>House Price Predictions</h1>
+<table border="1">
+<tr><th>Size</th><th>Bedrooms</th><th>Age</th><th>City Center</th><th>Predicted Price</th></tr>
+"""
+
+for _, row in new_houses.iterrows():
+    html += f"<tr><td>{row['size']}</td><td>{row['bedrooms']}</td><td>{row['age']}</td><td>{row['city_center']}</td><td>{row['predicted_price']:.2f}</td></tr>"
+
+html += """</table>
+</body>
+</html>"""
+
+with open("predictions_custom.html", "w") as f:
+    f.write(html)
